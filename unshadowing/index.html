@@ -1,0 +1,32 @@
+	<!DOCTYPE html>
+	<html>
+		<head>
+			<meta charset="UTF-8" />
+			<meta name="viewport" content="width=device-width" />
+			<title>Unshadowing</title>
+			<script charset="utf-8">
+				function Foo(who){
+					this.me = who
+				}
+				Foo.prototype.identify = function (rcgn){
+				 console.log(typeof rcgn);
+				if(typeof rcgn !== "undefined"){
+					document.write("we are at "+this.me);
+				}else{
+					document.write("<h2>we are at "+this.me+"</h2>");
+				}
+				};
+				a1 = new Foo("a1");
+				a1.identify();
+				a1.recognize = function (){
+					var rcgn= true;
+					this.identify(rcgn);
+				};
+				// function call was not appropriate the first time
+				a1.recognize();
+			</script>
+		</head>
+		<body>
+			<h1>Welcome to the Javascript world.</h1>
+		</body>
+	</html>
